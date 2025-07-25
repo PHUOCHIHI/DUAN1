@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Sprites/Assets/Scenes/MainMenu.unity
     guid: 669e4c05a3f0524408212ff9d6d98dd0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Pacmann.unity
     guid: 55d9ff049fcf5cb4e86dba5d64d5d1c7
   - enabled: 1

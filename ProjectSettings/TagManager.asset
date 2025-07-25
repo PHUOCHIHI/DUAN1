@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Pacman
   - 1
+  - pallet
+  - Dot
+  - PowerDot
+  - Wall
+  - Ghost
+  - Pellet
   layers:
   - Default
   - TransparentFX
@@ -19,7 +25,7 @@ TagManager:
   - Obstacle
   - Node
   - scoreText
-  - 
+  - WALL
   - 
   - 
   - 
