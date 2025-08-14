@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class GhostHome : GhostBehavior
@@ -32,7 +32,7 @@ public class GhostHome : GhostBehavior
     {
         // Turn off movement while we manually animate the position
         ghost.movement.SetDirection(Vector2.up, true);
-        ghost.movement.rb.isKinematic = true;
+        ghost.movement.rb.bodyType = RigidbodyType2D.Kinematic; // Sửa dòng này
         ghost.movement.enabled = false;
 
         Vector3 position = transform.position;
@@ -60,7 +60,7 @@ public class GhostHome : GhostBehavior
 
         // Pick a random direction left or right and re-enable movement
         ghost.movement.SetDirection(new Vector2(Random.value < 0.5f ? -1f : 1f, 0f), true);
-        ghost.movement.rb.isKinematic = false;
+        ghost.movement.rb.bodyType = RigidbodyType2D.Dynamic; // Sửa dòng này
         ghost.movement.enabled = true;
     }
 

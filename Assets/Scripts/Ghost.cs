@@ -1,99 +1,69 @@
 ﻿using UnityEngine;
 
+[DefaultExecutionOrder(-10)]
+[RequireComponent(typeof(Movement))]
 public class Ghost : MonoBehaviour
 {
-    public enum GhostState { Chase, Scatter, Frightened }
-    public GhostState currentState;
+    public Movement movement { get; private set; }
+    public GhostHome home { get; private set; }
+    public GhostScatter scatter { get; private set; }
+    public GhostChase chase { get; private set; }
+    public GhostFrightened frightened { get; private set; }
+    public GhostBehavior initialBehavior;
+    public Transform target;
+    public int points = 200;
 
-    public float speed = 3f;
-    private Transform pacmanTarget;
-    public Vector2 scatterTarget; // góc map riêng của ghost
-
-    private Vector2 direction;
-
-    void Start()
+    private void Awake()
     {
-        pacmanTarget = GameObject.FindGameObjectWithTag("Player").transform;
-        ChangeState(GhostState.Scatter);
-        InvokeRepeating(nameof(SwitchScatterChase), 7f, 10f); // 7s scatter, 10s chase
+        movement = GetComponent<Movement>();
+        home = GetComponent<GhostHome>();
+        scatter = GetComponent<GhostScatter>();
+        chase = GetComponent<GhostChase>();
+        frightened = GetComponent<GhostFrightened>();
     }
 
-    void Update()
+    private void Start()
     {
-        MoveByState();
+        ResetState();
     }
 
-    void MoveByState()
+    public void ResetState()
     {
-        switch (currentState)
-        {
-            case GhostState.Chase:
-                MoveTowards(pacmanTarget.position);
-                break;
-            case GhostState.Scatter:
-                MoveTowards(scatterTarget);
-                break;
-            case GhostState.Frightened:
-                MoveRandom(); // di chuyển ngẫu nhiên
-                break;
+        gameObject.SetActive(true);
+        movement.ResetState();
+
+        frightened.Disable();
+        chase.Disable();
+        scatter.Enable();
+
+        if (home != initialBehavior) {
+            home.Disable();
+        }
+
+        if (initialBehavior != null) {
+            initialBehavior.Enable();
         }
     }
 
-    void MoveTowards(Vector2 target)
+    public void SetPosition(Vector3 position)
     {
-        Vector2 dir = (target - (Vector2)transform.position).normalized;
-        transform.Translate(dir * speed * Time.deltaTime);
+        position.z = transform.position.z;
+        transform.position = position;
     }
 
-    void MoveRandom()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Random.value < 0.01f)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
         {
-            Vector2[] dirs = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-            direction = dirs[Random.Range(0, dirs.Length)];
-        }
-        transform.Translate(direction * speed * Time.deltaTime);
-    }
-
-    void SwitchScatterChase()
-    {
-        if (currentState == GhostState.Scatter)
-            ChangeState(GhostState.Chase);
-        else if (currentState == GhostState.Chase)
-            ChangeState(GhostState.Scatter);
-    }
-
-    public void ChangeState(GhostState newState)
-    {
-        currentState = newState;
-
-        if (newState == GhostState.Frightened)
-        {
-            GetComponent<SpriteRenderer>().color = Color.blue;
-            CancelInvoke(nameof(SwitchScatterChase));
-            Invoke(nameof(EndFrightened), 5f); // 5s sợ hãi
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().color = Color.white;
+            if (frightened != null && frightened.enabled) // Thêm kiểm tra null
+            {
+                GameManager.Instance.GhostEaten(this);
+            }
+            else
+            {
+                GameManager.Instance.PacmanEaten();
+            }
         }
     }
 
-    void EndFrightened()
-    {
-        ChangeState(GhostState.Scatter);
-        InvokeRepeating(nameof(SwitchScatterChase), 7f, 10f);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (currentState == GhostState.Frightened && other.CompareTag("Player"))
-        {
-            Destroy(gameObject); // bị ăn
-        }
-        else if (other.CompareTag("Player"))
-        {
-            Debug.Log("Pac-Man bị bắt! Game Over!");
-        }
-    }
 }

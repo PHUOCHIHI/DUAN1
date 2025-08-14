@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
         direction = initialDirection;
         nextDirection = Vector2.zero;
         transform.position = startingPosition;
-        rb.isKinematic = false;
+        rb.bodyType = RigidbodyType2D.Dynamic; 
         enabled = true;
     }
 

@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 6075840763859463658}
   - component: {fileID: 8627147079641708414}
   - component: {fileID: 453259390163844340}
-  - component: {fileID: 4272298072459131958}
   m_Layer: 7
   m_Name: Ghost_Inky 1
   m_TagString: Untagged
@@ -137,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2a82916a0e72a4daffdef2f2eafb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBehavior: {fileID: 5679803967110845876}
-  target: {fileID: 1352977506009973736}
+  initialBehavior: {fileID: 0}
+  target: {fileID: 0}
   points: 200
 --- !u!114 &5679803967110845876
 MonoBehaviour:
@@ -147,7 +146,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352977506009973743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56e93f9a85f2174dadd6fdb859d8f73, type: 3}
   m_Name: 
@@ -162,7 +161,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352977506009973743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d90e4b56b62e12c4dab1ac724d70d134, type: 3}
   m_Name: 
@@ -175,7 +174,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352977506009973743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ef6398471c69b84e95ffbe67397df0f, type: 3}
   m_Name: 
@@ -196,20 +195,8 @@ MonoBehaviour:
   duration: 8
   body: {fileID: 7496695102964490872}
   eyes: {fileID: 6715698847594670074}
+  blue: {fileID: 5653679422772651817}
   white: {fileID: 6660721714255468805}
---- !u!114 &4272298072459131958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352977506009973743}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d6e48b634fa4a1489f89d3a3820afe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
 --- !u!1 &2894870108483064013
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +396,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5431891815026872668}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 824908b24fd58c84296be726049e76aa, type: 3}
   m_Name: 

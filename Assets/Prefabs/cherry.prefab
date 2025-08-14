@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3438764393974642833}
   - component: {fileID: 656882192285643306}
   - component: {fileID: 2491638035763172229}
+  - component: {fileID: 2944497189315694980}
   m_Layer: 8
   m_Name: cherry
   m_TagString: Dot
@@ -124,3 +125,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.00000059142593, y: -0.023996795}
   m_Radius: 0.14053759
+--- !u!114 &2944497189315694980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8669233454982555816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5254213b7be9f374ea9f42e103d3d24d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 10

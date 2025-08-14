@@ -4,7 +4,7 @@ public class GhostFrightened : GhostBehavior
 {
     public SpriteRenderer body;
     public SpriteRenderer eyes;
-    //public SpriteRenderer blue;
+    public SpriteRenderer blue;
     public SpriteRenderer white;
 
     private bool eaten;
@@ -15,7 +15,7 @@ public class GhostFrightened : GhostBehavior
 
         body.enabled = false;
         eyes.enabled = false;
-        //blue.enabled = true;
+        blue.enabled = true;
         white.enabled = false;
 
         Invoke(nameof(Flash), duration / 2f);
@@ -27,7 +27,7 @@ public class GhostFrightened : GhostBehavior
 
         body.enabled = true;
         eyes.enabled = true;
-        //blue.enabled = false;
+        blue.enabled = false;
         white.enabled = false;
     }
 
@@ -39,7 +39,7 @@ public class GhostFrightened : GhostBehavior
 
         body.enabled = false;
         eyes.enabled = true;
-        //blue.enabled = false;
+        blue.enabled = false;
         white.enabled = false;
     }
 
@@ -47,7 +47,7 @@ public class GhostFrightened : GhostBehavior
     {
         if (!eaten)
         {
-            //blue.enabled = false;
+            blue.enabled = false;
             white.enabled = true;
             white.GetComponent<AnimatedSprite>().Restart();
         }
@@ -55,7 +55,7 @@ public class GhostFrightened : GhostBehavior
 
     private void OnEnable()
     {
-        //blue.GetComponent<AnimatedSprite>().Restart();
+        blue.GetComponent<AnimatedSprite>().Restart();
         ghost.movement.speedMultiplier = 0.5f;
         eaten = false;
     }

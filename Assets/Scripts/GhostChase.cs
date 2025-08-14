@@ -17,12 +17,11 @@ public class GhostChase : GhostBehavior
             Vector2 direction = Vector2.zero;
             float minDistance = float.MaxValue;
 
+            // Find the available direction that moves closet to pacman
             foreach (Vector2 availableDirection in node.availableDirections)
             {
-                // Không cho quay đầu lại
-                if (availableDirection == -ghost.movement.direction)
-                    continue;
-
+                // If the distance in this direction is less than the current
+                // min distance then this direction becomes the new closest
                 Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y);
                 float distance = (ghost.target.position - newPosition).sqrMagnitude;
 
@@ -31,12 +30,6 @@ public class GhostChase : GhostBehavior
                     direction = availableDirection;
                     minDistance = distance;
                 }
-            }
-
-            // Nếu không còn hướng nào ngoài quay đầu, thì buộc phải quay đầu
-            if (direction == Vector2.zero && node.availableDirections.Count > 0)
-            {
-                direction = -ghost.movement.direction;
             }
 
             ghost.movement.SetDirection(direction);

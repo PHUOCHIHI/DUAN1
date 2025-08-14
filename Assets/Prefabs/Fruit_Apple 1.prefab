@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6601299497265606675}
   - component: {fileID: 1678417829095135002}
   - component: {fileID: 5256163500475412095}
+  - component: {fileID: 6507889931623942027}
+  - component: {fileID: -8454202528539499585}
   m_Layer: 8
   m_Name: Fruit_Apple 1
   m_TagString: PowerDot
@@ -76,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 333efda297305804ab18ba62c4a59b0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,3 +126,32 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.041920803}
   m_Radius: 0.5988665
+--- !u!114 &6507889931623942027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089339123661261462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa93fa24cd7f84548a0505b674004680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 20
+  duration: 8
+--- !u!114 &-8454202528539499585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089339123661261462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824908b24fd58c84296be726049e76aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  animationTime: 0.25
+  loop: 1
