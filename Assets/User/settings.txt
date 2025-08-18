@@ -1,0 +1,2 @@
+MusicVolume:0
+SFXVolume:0
