@@ -1,2 +1,2 @@
-MusicVolume:0
-SFXVolume:0
+MusicVolume:4.491546
+SFXVolume:4.491546
